@@ -1,0 +1,34 @@
+ReconForge 4.1 quick start
+
+python3 -m venv .venv
+source .venv/bin/activate
+python3 -m pip install -r requirements.txt
+
+sudo apt update
+sudo apt install nmap nikto wapiti sqlmap ffuf feroxbuster seclists
+
+# Verify binaries
+command -v nmap nikto wapiti sqlmap ffuf feroxbuster nuclei
+
+# First inspect without running scanners
+python3 reconforge.py 127.0.0.1 --authorized --mode advanced --dry-run
+
+# Authorized assessment
+python3 reconforge.py 127.0.0.1 --authorized --mode advanced --report yes
+
+# Local Qwen GGUF
+python3 reconforge.py 127.0.0.1 --authorized --mode advanced --qwen-gguf ~/models/qwen4b.gguf
+
+# Install as a CLI package (optional)
+python3 -m pip install -e .
+reconforge --help
+
+# Official testssl.sh (TLS/SSL)
+./scripts/install_testssl.sh
+
+# Web assessment with automatic report type
+python3 reconforge.py https://example.com --authorized --mode advanced --report yes --report-type auto
+
+# Explicit report templates
+python3 reconforge.py 192.0.2.10 --authorized --mode advanced --report-type network
+python3 reconforge.py https://api.example.test/api/v1 --authorized --mode advanced --report-type api

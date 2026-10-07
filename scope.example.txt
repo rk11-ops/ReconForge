@@ -1,0 +1,4 @@
+# Authorized scope examples. Replace with your engagement values.
+app.example.test
+*.api.example.test
+192.0.2.0/28

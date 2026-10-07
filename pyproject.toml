@@ -1,0 +1,16 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "reconforge"
+version = "4.1.1"
+description = "Evidence-driven adaptive reconnaissance orchestrator for authorized assessments"
+requires-python = ">=3.10"
+dependencies = ["rich>=13.9,<15"]
+
+[project.scripts]
+reconforge = "reconforge.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["."]
